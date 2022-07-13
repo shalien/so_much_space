@@ -1,33 +1,39 @@
-
-
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/parallax.dart';
-import 'package:flutter/widgets.dart';
-
-import 'package:so_much_space/player_triangle.dart';
+import 'package:flutter/material.dart';
 
 class GameInstance extends FlameGame with HasCollisionDetection {
 
-  final sprites = [
-    'shalien.png',
-    'shalien2.png',
-    'shalien3.png',
-    'moa.png',
-    'rondo.png',
-    'linoyd.png',
-    'linoyd2.png',
-  ];
+  @override
+  backgroundColor() => Colors.blue;
 
   @override
   Future<void> onLoad() async {
-    print('${camera.canvasSize.x} ${camera.canvasSize.y} ${camera.viewport.effectiveSize.x} ${camera.viewport.effectiveSize.y}');
-    await super.onLoad();
-    await add(ScreenHitbox());
+    final parallaxComponent = await loadParallaxComponent(
+      [
+        ParallaxImageData('backgrounds/snowland/SnowLand_Background_2.png'),
+        ParallaxImageData('backgrounds/snowland/SnowLand_Background_3.png'),
+        ParallaxImageData('backgrounds/snowland/SnowLand_Background_4.png'),
+        ParallaxImageData('backgrounds/snowland/SnowLand_Background_5.png'),
+        ParallaxImageData('backgrounds/snowland/SnowLand_Background_6.png'),
+      ],
+      baseVelocity: Vector2(20, 0),
+      velocityMultiplierDelta: Vector2(2.0, 1.0),
+      repeat: ImageRepeat.repeatX,
+      fill: LayerFill.height,
+    );
 
-    for(var sprite in sprites) {
-      await add(PlayerTriangle(sprite));
-    }
+    add(parallaxComponent);
   }
+
+  @override
+  void update(double dt) {
+    // TODO: implement update
+      super.update(dt);
+
+      camera.position.x = camera.position.x + 1 * dt;
+  }
+
 
 }
