@@ -1,10 +1,8 @@
-
 import 'package:flame/game.dart';
 import 'package:flutter/widgets.dart';
-import 'package:so_much_space/game_instance.dart';
 
+import 'src/base_game.dart';
 
 void main() {
-  final gameInstance = GameInstance();
-  runApp(GameWidget(game: gameInstance));
+    runApp(GameWidget(game: BaseGame()));
 }

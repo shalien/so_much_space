@@ -63,11 +63,7 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/images/backgrounds/snowland/SnowLand_Background_2.png
-    - assets/images/backgrounds/snowland/SnowLand_Background_3.png
-    - assets/images/backgrounds/snowland/SnowLand_Background_4.png
-    - assets/images/backgrounds/snowland/SnowLand_Background_5.png
-    - assets/images/backgrounds/snowland/SnowLand_Background_6.png
+    - assets/images/Player00.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
